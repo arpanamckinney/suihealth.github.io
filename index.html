@@ -1,2100 +1,1596 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sui Health | Serving Us Individually - Fighting Neurodegenerative Disease Together</title>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <style>
-    /* ---------- GLOBAL STYLES ---------- */
-    :root {
-      --primary-blue: #2563eb;
-      --secondary-blue: #1e40af;
-      --light-blue: #3b82f6;
-      --accent-blue: #60a5fa;
-      --dark-black: #0f172a;
-      --medium-black: #1e293b;
-      --light-black: #334155;
-      --gray: #64748b;
-      --light-gray: #f1f5f9;
-      --white: #ffffff;
-      --success: #10b981;
-      --warning: #f59e0b;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--dark-black);
-      background-color: var(--white);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ---------- TYPOGRAPHY ---------- */
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
-    }
-
-    h3 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 600;
-      line-height: 1.3;
-      margin-bottom: 1rem;
-    }
-
-    h4 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--medium-black);
-      margin-bottom: 1rem;
-    }
-
-    /* ---------- UTILITY CLASSES ---------- */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 32px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-      text-align: center;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--light-blue), var(--accent-blue));
-      color: var(--white);
-      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid var(--white);
-    }
-
-    .btn-secondary:hover {
-      background: var(--white);
-      color: var(--gray-blue);
-    }
-
-    .btn-dark {
-      background: var(--dark-black);
-      color: var(--white);
-    }
-
-    .btn-dark:hover {
-      background: var(--medium-black);
-    }
-
-    /* ---------- NAVIGATION ---------- */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-
-    nav.scrolled {
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 5%;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--white);
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .logo i {
-      color: var(--accent-blue);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent-blue);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-links .btn-donate {
-      background: var(--accent-blue);
-      padding: 8px 20px;
-      border-radius: 25px;
-      margin-left: 10px;
-    }
-
-    .nav-links .btn-donate:hover {
-      background: var(--light-blue);
-    }
-
-    .mobile-menu {
-      display: none;
-      color: var(--white);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-   /* ---------- HERO SECTION ---------- */
-#home {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-
-  /* background image with overlay */
-  background: 
-    linear-gradient(rgba(15,23,42,0.6), rgba(30,64,175,0.6)),
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sui Health | Serving Us Individually - Fighting Neurodegenerative Disease Together</title>
     
-    url('https://suihealth-website.s3.us-east-2.amazonaws.com/photos/17_6_21_vehicle_treated_DAPI_TDP_MAP2_2_MaxIntensity.png') no-repeat center center;
-  background-size: cover;
-}
-
-#home::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.2); /* subtle dark overlay */
-  pointer-events: none;
-}
-
-#home .hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 0 20px;
-  animation: fadeInUp 1s ease;
-}
-
-#home .hero-subtitle {
-  color: var(--accent-blue);
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-#home h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
-  margin-bottom: 1rem;
-}
-
-#home p {
-  font-size: 1.2rem;
-  line-height: 1.5;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 2rem;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  #home h1 { font-size: 2.2rem; }
-  #home p { font-size: 1rem; }
-}
-
-@media (max-width: 480px) {
-  #home h1 { font-size: 1.8rem; }
-  #home p { font-size: 0.9rem; }
-  .hero-buttons { flex-direction: column; gap: 12px; }
-}
-
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--accent-blue);
-    }
-
-    .stat-label {
-      font-size: 0.95rem;
-      color: rgba(255, 255, 255, 0.8);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    #version1 {
-     background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-    }
-    #version1::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(15, 23, 42, 0.75);
-      z-index: 1;    }
-    /* ---------- SECTIONS ---------- */
-    section {
-      padding: 100px 0;
-      position: relative;
-    }
-
-    section:nth-child(even) {
-      background: var(--light-gray);
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-subtitle {
-      color: var(--primary-blue);
-      font-size: 1rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 1rem;
-    }
-
-    /* ---------- ABOUT SECTION ---------- */
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      margin-bottom: 4rem;
-    }
-
-    .about-text h3 {
-      color: var(--light-black);
-      margin-bottom: 1.5rem;
-    }
-
-    .about-image {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-
-    .about-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 3rem;
-    }
-
-    .value-card {
-      background: var(--white);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .value-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .value-card i {
-      font-size: 2.5rem;
-      color: var(--light-black);
-      margin-bottom: 1rem;
-    }
-
-    .value-card h4 {
-      color: var(--dark-black);
-      margin-bottom: 0.5rem;
-    }
-
-    .about-values {
-      text-align: center;
-      margin-bottom: 40px;
-      padding: 0 20px;   /* ensures image stays inside the borders */
-      box-sizing: border-box;
-    }
-
-    .about-values img {
-      max-width: 100%;
-      max-height: 400px;   /* limit vertical height */
-      width: auto;
-      height: auto;
-      object-fit: cover;   /* crops edges instead of squishing */
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      display: block;
-      margin: 0 auto;
-    }
-
-
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    /* ---------- PROGRAMS SECTION ---------- */
-    .programs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
-    }
-
-    .program-card {
-      background: var(--white);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .program-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .program-image {
-      height: 250px;
-      background: linear-gradient(135deg, var(--light-black), var(--secondary-blue));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      color: var(--white);
-    }
-
-    .program-content {
-      padding: 30px;
-    }
-
-    .program-content h3 {
-      color: var(--dark-black);
-      margin-bottom: 1rem;
-    }
-
-    .program-stats {
-      display: flex;
-      gap: 20px;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--light-gray);
-    }
-
-    .program-stat {
-      flex: 1;
-      text-align: center;
-    }
-
-    .program-stat-value {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--light-black);
-    }
-
-    .program-stat-label {
-      font-size: 0.9rem;
-      color: var(--gray);
-    }
-
-    /* ---------- GET INVOLVED SECTION ---------- */
-    .involvement-options {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-    }
-
-    .involvement-card {
-      background: linear-gradient(135deg, var(--dark-black), var(--medium-black));
-      color: var(--white);
-      padding: 40px 30px;
-      border-radius: 20px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .involvement-card:hover {
-      transform: scale(1.05);
-    }
-
-    .involvement-card i {
-      font-size: 3rem;
-      color: var(--accent-blue);
-      margin-bottom: 1.5rem;
-    }
-
-    .involvement-card h3 {
-      margin-bottom: 1rem;
-    }
-
-    .involvement-card p {
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 1.5rem;
-    }
-
-    .involvement-card .btn {
-      width: 100%;
-    }
-
-    /* ---------- DONATE SECTION ---------- */
-    .donate-container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: var(--white);
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-
-    .donation-options {
-      display: flex;
-      background: var(--light-gray);
-      border-bottom: 2px solid var(--light-black);
-    }
-
-    .donation-tab {
-      flex: 1;
-      padding: 20px;
-      background: var(--light-gray);
-      border: none;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--medium-black);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .donation-tab.active {
-      background: var(--white);
-      color: var(--light-black);
-    }
-
-    .donation-content {
-      padding: 40px;
-    }
-
-    .amount-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-bottom: 30px;
-    }
-
-    .amount-btn {
-      padding: 20px;
-      background: var(--light-gray);
-      border: 2px solid transparent;
-      border-radius: 10px;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--dark-black);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .amount-btn:hover, .amount-btn.selected {
-      border-color: var(--light-black);
-      background: rgba(37, 99, 235, 0.1);
-      color: var(--light-black);
-    }
-
-    .custom-amount {
-      grid-column: span 3;
-      padding: 15px;
-      font-size: 1.1rem;
-      border: 2px solid var(--light-gray);
-      border-radius: 10px;
-      transition: border-color 0.3s ease;
-    }
-
-    .custom-amount:focus {
-      outline: none;
-      border-color: var(--light-black);
-    }
-
-    .payment-methods {
-      margin: 30px 0;
-    }
-
-    .payment-methods h4 {
-      margin-bottom: 15px;
-    }
-
-    .payment-icons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .payment-icon {
-      padding: 10px 20px;
-      border: 2px solid var(--light-gray);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .payment-icon:hover, .payment-icon.selected {
-      border-color: var(--light-black);
-      background: rgba(37, 99, 235, 0.05);
-    }
-
-    .donate-btn {
-      width: 100%;
-      padding: 18px;
-      font-size: 1.2rem;
-      margin-top: 20px;
-    }
-
-    .donation-info {
-      margin-top: 30px;
-      padding: 20px;
-      background: var(--light-gray);
-      border-radius: 10px;
-    }
-
-    .donation-info p {
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
-    }
-
-    /* ---------- TEAM SECTION ---------- */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-    }
-
-    .team-member {
-      background: var(--white);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .team-member:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .team-member-image {
-      height: 350px;
-      background: linear-gradient(135deg, var(--light-black), var(--secondary-blue));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .team-member-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .team-member-placeholder {
-      font-size: 5rem;
-      color: var(--white);
-    }
-
-    .team-member-content {
-      padding: 30px;
-    }
-
-    .team-member-content h3 {
-      color: var(--dark-black);
-      margin-bottom: 0.5rem;
-    }
-
-    .team-member-role {
-      color: var(--light-black);
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .team-member-bio {
-      color: var(--gray);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .team-member-social {
-      display: flex;
-      gap: 15px;
-    }
-
-    .team-member-social a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--light-gray);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--medium-black);
-      transition: all 0.3s ease;
-    }
-
-    .team-member-social a:hover {
-      background: var(--light-black);
-      color: var(--white);
-    }
-
-    /* ---------- CONTACT SECTION ---------- */
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .contact-info {
-      background: linear-gradient(135deg, var(--dark-black), var(--medium-black));
-      color: var(--white);
-      padding: 40px;
-      border-radius: 20px;
-    }
-
-    .contact-info h3 {
-      margin-bottom: 2rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 25px;
-    }
-
-    .contact-item i {
-      font-size: 1.5rem;
-      color: var(--accent-blue);
-      width: 30px;
-    }
-
-    .contact-item-content h4 {
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-      color: var(--accent-blue);
-    }
-
-    .contact-item-content p {
-      color: rgba(255, 255, 255, 0.9);
-      margin: 0;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .social-links a {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      font-size: 1.3rem;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      background: var(--light-black);
-      transform: translateY(-3px);
-    }
-
-    .contact-form {
-      background: var(--white);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    }
-
-    .contact-form h3 {
-      margin-bottom: 2rem;
-      color: var(--dark-black);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-      color: var(--dark-black);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid var(--light-gray);
-      border-radius: 10px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--light-black);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .form-submit {
-      width: 100%;
-      padding: 15px;
-      font-size: 1.1rem;
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      background: var(--dark-black);
-      color: var(--white);
-      padding: 60px 0 30px;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-about h3 {
-      margin-bottom: 1rem;
-      color: var(--accent-blue);
-    }
-
-    .footer-about p {
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.8;
-    }
-
-    .footer-column h4 {
-      margin-bottom: 1.5rem;
-      color: var(--white);
-    }
-
-    .footer-column ul {
-      list-style: none;
-    }
-
-    .footer-column ul li {
-      margin-bottom: 12px;
-    }
-
-    .footer-column ul li a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-column ul li a:hover {
-      color: var(--accent-blue);
-    }
-
-    .footer-bottom {
-      padding-top: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    /* ---------- ANIMATIONS ---------- */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ---------- RESPONSIVE DESIGN ---------- */
-    @media (max-width: 1024px) {
-      .about-content,
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .mobile-menu {
-        display: block;
-      }
-
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      h2 {
-        font-size: 2rem;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .programs-grid,
-      .team-grid,
-      .involvement-options {
-        grid-template-columns: 1fr;
-      }
-
-      .amount-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .donation-options {
-        flex-direction: column;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .social-links {
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      section {
-        padding: 60px 20px;
-      }
-
-      .container {
-        padding: 0 15px;
-      }
-
-      .btn {
-        padding: 12px 24px;
-        font-size: 1rem;
-      }
-    }
-
-    /* ---------- LOADING ANIMATION ---------- */
-    .loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--dark-black);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-
-    .loader.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .loader-spinner {
-      width: 60px;
-      height: 60px;
-      border: 4px solid rgba(255, 255, 255, 0.1);
-      border-top-color: var(--accent-blue);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ---------- CSS VARIABLES ---------- */
+        :root {
+            --primary-blue: #2563eb;
+            --secondary-blue: #1e40af;
+            --light-blue: #3b82f6;
+            --accent-blue: #60a5fa;
+            --dark-black: #0f172a;
+            --medium-black: #1e293b;
+            --light-black: #334155;
+            --gray: #64748b;
+            --light-gray: #f1f5f9;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            
+            /* Responsive spacing */
+            --section-padding: clamp(60px, 8vw, 100px);
+            --container-padding: clamp(16px, 4vw, 20px);
+            --element-gap: clamp(20px, 4vw, 30px);
+        }
+
+        /* ---------- RESET & BASE ---------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-black);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* ---------- RESPONSIVE TYPOGRAPHY ---------- */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--medium-black);
+            margin-bottom: 1rem;
+        }
+
+        /* ---------- RESPONSIVE CONTAINER SYSTEM ---------- */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        /* ---------- SECTIONS ---------- */
+        section {
+            width: 100%;
+            padding: var(--section-padding) 0;
+            position: relative;
+        }
+
+        section:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--primary-blue);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        /* ---------- BUTTONS ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: clamp(12px, 3vw, 14px) clamp(24px, 5vw, 32px);
+            font-size: clamp(1rem, 2.5vw, 1.05rem);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--light-blue), var(--accent-blue));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .btn-dark {
+            background: var(--dark-black);
+            color: var(--white);
+        }
+
+        .btn-dark:hover {
+            background: var(--medium-black);
+        }
+
+        /* ---------- NAVIGATION ---------- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: clamp(0.75rem, 2vw, 1rem) clamp(16px, 4vw, 5%);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--accent-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: clamp(20px, 4vw, 30px);
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links .btn-donate {
+            background: var(--accent-blue);
+            padding: 8px 20px;
+            border-radius: 25px;
+            margin-left: 10px;
+        }
+
+        .nav-links .btn-donate:hover {
+            background: var(--light-blue);
+            transform: translateY(-1px);
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* ---------- HERO SECTION ---------- */
+        #home {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            
+            /* Background image with overlay - matching user's exact setup */
+            background: 
+                linear-gradient(rgba(15,23,42,0.6), rgba(30,64,175,0.6)),
+                url('https://suihealth-website.s3.us-east-2.amazonaws.com/photos/17_6_21_vehicle_treated_DAPI_TDP_MAP2_2_MaxIntensity.png') no-repeat center center;
+            background-size: cover;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0;
+            background: rgba(0,0,0,0.2);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 var(--container-padding);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #home h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ---------- RESPONSIVE GRIDS ---------- */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--element-gap);
+            margin-top: 3rem;
+        }
+
+        /* ---------- VALUE CARDS ---------- */
+        .value-card {
+            background: var(--white);
+            padding: clamp(25px, 4vw, 30px);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: fit-content;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-card i {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            color: var(--light-black);
+            margin-bottom: 1rem;
+        }
+
+        .value-card h4 {
+            color: var(--dark-black);
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card p {
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ---------- ABOUT SECTION ---------- */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(40px, 8vw, 60px);
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-text h3 {
+            color: var(--light-black);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            order: 2;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            order: 1;
+        }
+
+        /* Image section for programs */
+        .about-values {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 var(--container-padding);
+            box-sizing: border-box;
+        }
+
+        .about-values img {
+            max-width: 100%;
+            max-height: 400px;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ---------- TEAM SECTION ---------- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--element-gap);
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-member-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--light-black), var(--secondary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member-placeholder {
+            font-size: 4rem;
+            color: var(--white);
+        }
+
+        .team-member-content {
+            padding: clamp(20px, 4vw, 30px);
+        }
+
+        .team-member-role {
+            color: var(--light-black);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-member-bio {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 0;
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+        }
+
+        /* ---------- GET INVOLVED SECTION ---------- */
+        .involvement-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--element-gap);
+        }
+
+        .involvement-card {
+            background: linear-gradient(135deg, var(--dark-black), var(--medium-black));
+            color: var(--white);
+            padding: clamp(30px, 5vw, 40px) clamp(20px, 4vw, 30px);
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .involvement-card:hover {
+            transform: scale(1.02);
+        }
+
+        .involvement-card i {
+            font-size: clamp(2.5rem, 5vw, 3rem);
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .involvement-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .involvement-card p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+        }
+
+        .involvement-card .btn {
+            width: 100%;
+            max-width: 250px;
+        }
+
+        /* ---------- DONATION SECTION (Matching user's exact structure) ---------- */
+        .sui-donation-section {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .donation-content-wrapper {
+            padding: clamp(30px, 5vw, 50px) clamp(20px, 4vw, 40px);
+        }
+
+        .impact-message {
+            text-align: center;
+            margin-bottom: clamp(30px, 6vw, 50px);
+        }
+
+        .impact-message h3 {
+            color: var(--dark-black);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-message p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            line-height: 1.7;
+            color: var(--medium-black);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .impact-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(20px, 4vw, 25px);
+            margin-top: 30px;
+        }
+
+        .impact-point {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: clamp(15px, 3vw, 20px);
+            background: var(--light-gray);
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .impact-point:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(37, 99, 235, 0.1);
+        }
+
+        .impact-point i {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            color: var(--primary-blue);
+            min-width: 24px;
+            flex-shrink: 0;
+        }
+
+        .impact-point span {
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+            font-weight: 500;
+            color: var(--dark-black);
+        }
+
+        .secure-donation {
+            text-align: center;
+            margin: clamp(30px, 6vw, 50px) 0;
+        }
+
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 12px clamp(20px, 4vw, 28px);
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            margin-bottom: clamp(25px, 5vw, 35px);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .security-badge i {
+            font-size: 1.1rem;
+        }
+
+        .paypal-container {
+            margin: 30px 0;
+        }
+
+        .custom-donate-btn {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--accent-blue) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            padding: clamp(18px, 4vw, 24px) clamp(30px, 6vw, 50px);
+            font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+            min-width: clamp(280px, 50vw, 320px);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .custom-donate-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .custom-donate-btn:hover::before {
+            left: 100%;
+        }
+
+        .custom-donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.4);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        }
+
+        .custom-donate-btn i {
+            font-size: 1.3rem;
+        }
+
+        .btn-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn-text {
+            font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+            line-height: 1.2;
+        }
+
+        .btn-content small {
+            font-size: clamp(0.75rem, 2vw, 0.8rem);
+            font-weight: 400;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        .nonprofit-credentials {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: clamp(25px, 5vw, 40px);
+            margin: clamp(30px, 6vw, 50px) 0;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(20px, 4vw, 30px);
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: clamp(15px, 3vw, 20px);
+            background: var(--white);
+            padding: clamp(18px, 4vw, 25px);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .credential-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .credential-icon {
+            width: clamp(50px, 8vw, 60px);
+            height: clamp(50px, 8vw, 60px);
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--accent-blue) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .credential-icon i {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            color: var(--white);
+        }
+
+        .credential-text {
+            flex: 1;
+        }
+
+        .credential-text strong {
+            display: block;
+            color: var(--dark-black);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .credential-text span {
+            color: var(--gray);
+            font-size: clamp(0.9rem, 2vw, 0.95rem);
+        }
+
+        /* ---------- CONTACT SECTION ---------- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--element-gap);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--dark-black), var(--medium-black));
+            color: var(--white);
+            padding: clamp(25px, 5vw, 40px);
+            border-radius: 20px;
+            order: 2;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: clamp(25px, 5vw, 40px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            order: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            width: 30px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .contact-item-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: var(--accent-blue);
+        }
+
+        .contact-item-content p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+        }
+
+        .contact-item-content a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+        }
+
+        .form-group {
+            margin-bottom: clamp(15px, 3vw, 20px);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-black);
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: clamp(10px, 2.5vw, 12px);
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: clamp(100px, 20vw, 120px);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: clamp(12px, 3vw, 15px);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: var(--dark-black);
+            color: var(--white);
+            padding: clamp(40px, 8vw, 60px) 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--element-gap);
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-size: clamp(0.95rem, 2.5vw, 1rem);
+        }
+
+        .footer-column h4 {
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: clamp(0.875rem, 2vw, 0.95rem);
+        }
+
+        /* ---------- ANIMATIONS ---------- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ---------- RESPONSIVE BREAKPOINTS ---------- */
+        
+        /* Large tablets and up */
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .about-text {
+                order: 1;
+            }
+            
+            .about-image {
+                order: 2;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .contact-info {
+                order: 1;
+            }
+            
+            .contact-form {
+                order: 2;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+                flex-direction: row;
+            }
+        }
+
+        /* Mobile devices */
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .impact-points {
+                grid-template-columns: 1fr;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .custom-donate-btn {
+                max-width: 100%;
+                min-width: 100%;
+            }
+            
+            #home {
+                background-attachment: scroll;
+            }
+
+            .programs-grid,
+            .team-grid,
+            .involvement-options {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* Tablet size */
+        @media (max-width: 768px) {
+            #home h1 { 
+                font-size: 2.2rem; 
+            }
+            
+            #home .hero-description { 
+                font-size: 1rem; 
+            }
+        }
+
+        /* Very small devices */
+        @media (max-width: 480px) {
+            :root {
+                --container-padding: 15px;
+                --section-padding: 60px;
+            }
+
+            .impact-point {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .credential-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+
+            #home h1 { 
+                font-size: 1.8rem; 
+            }
+            
+            #home .hero-description { 
+                font-size: 0.9rem; 
+            }
+        }
+
+        /* Loading Screen */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--accent-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 
 <body>
-  <!-- ---------- LOADING SCREEN ---------- -->
-  <div class="loader" id="loader">
-    <div class="loader-spinner"></div>
-  </div>
-
-  <!-- ---------- NAVIGATION ---------- -->
-  <nav id="navbar">
-    <div class="nav-container">
-      <a href="#home" class="logo">
-        <i class="fas fa-heartbeat"></i>
-        <span>Sui Health - Serving Us Individually</span>
-      </a>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#programs">Programs</a>
-        <a href="#get-involved">Get Involved</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
-        <a href="#donate" class="btn-donate">Donate Now</a>
-      </div>
-      <div class="mobile-menu">
-        <i class="fas fa-bars"></i>
-      </div>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
     </div>
-  </nav>
 
-  <!-- ---------- HERO SECTION ---------- -->
-
-
-  
-  <section id="home">
-    <div class="hero-content">
-      <div class="container">
-        <div class="hero-text">
-          <div class="hero-subtitle">Fighting Neurodegenerative Disease Together</div>
-          <h1>Serving Us Individually</h1>
-          <p class="hero-description">
-             Sui Health is pioneering personalized therapeutics for neurodegenerative diseases like ALS. Using patient derived cellular models, we develop treatments tailored to each individual. 
-          </p>
-          <div class="hero-buttons">
-            <a href="#donate" class="btn btn-primary">
-              <i class="fas fa-heart"></i> Donate Now
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>Sui Health - Serving Us Individually</span>
             </a>
-            <a href="#about" class="btn btn-secondary">
-              <i class="fas fa-info-circle"></i> Learn More
-            </a>
-          </div>
-        </div>
-       
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------- ABOUT SECTION ---------- -->
-  <section id="about">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-subtitle">Our Story</div>
-        <h2></h2>
-      </div>
-      
-      <div class="about-content fade-in">
-        <div class="about-text">
-          <h3>Why We Exist</h3>
-          <p>
-            After having seen firsthand the devastating impact of ALS, both in the clinic and within our own families, we set out to build something that could meaningfully help patients today. We believe that the future of ALS care lies in personalized medicine rooted in each patient’s own biology. 
-          </p>
-          <p>
-            Using cells directly from the patient, Sui Health creates personalized neuronal models that capture the specific mechanisms driving an individual's disease. These models allow us to test therapies in a way that is deeply personalized and clinically relevant.
-          </p>
-         
-        </div>
-        <div class="about-image">
-          <img src="https://suihealth-website.s3.us-east-2.amazonaws.com/photos/ratsplosion.png" alt="Sui Health Laboratory">
-        </div>
-      </div>
-  <!-- ---------- VALUES SECTION ---------- -->
-
-      <div class="values-grid fade-in">
-        
-        <div class="value-card">
-          <i class="fas fa-users"></i>
-          <h4>Patient-Centered Care</h4>
-          <p>Every decision begins with the patient’s needs. We believe that individuals living with neurodegenerative disease deserve tailored, actionable solutions. </p>
-        </div>
-        <div class="value-card">
-          <i class="fas fa-handshake"></i>
-          <h4>Collaboration </h4>
-          <p>We believe breakthrough discoveries happen when we work together. We are excited to collaborate with academia, industry, and patient communities to accelerate discovery and expand access to personalized interventions.</p>
-        </div>
-        <div class="value-card">
-          <i class="fas fa-shield-alt"></i>
-          <h4>Ethical Integrity</h4>
-          <p>We ensure patient privacy, informed consent, and responsible use of biological materials. We are committed to doing responsible science.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- ---------- PROGRAMS SECTION ---------- -->
-<section id="programs">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-subtitle">What We Do</div>
-      <h2>Our Impact</h2>
-    </div>
-
-    <div class="about-values fade-in">
-      <img src="https://suihealth-website.s3.us-east-2.amazonaws.com/photos/BarmadaGallagherLab22_016.JPG" alt="Sui Health Laboratory">
-    </div>
-
-    <div class="values-grid fade-in">
-      <div class="value-card">
-        <i class="fas fa-brain"></i>
-        <h4>Disease Modeling</h4>
-        <p>We generate neurons directly from each patient’s cells to build personalized models of their disease. These models reveal the specific mechanisms affecting that person’s neurons and allow us to quickly test which treatments might help.</p>
-      </div>
-
-      <div class="value-card">
-        <i class="fas fa-pills"></i>
-        <h4>Drug Discovery Platform</h4>
-        <p>Using automated high-throughput assays and longitudinal imaging, we test hundreds of FDA-approved compounds with human safety data to identify treatments tailored to individual disease profiles.</p>
-      </div>
-
-      <div class="value-card">
-        <i class="fas fa-hands-helping"></i>
-        <h4>Patient Support</h4>
-        <p>Once we identify personalized therapies, we help bring these treatments back to the patient.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- ---------- GET INVOLVED SECTION ---------- -->
-  <section id="get-involved">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-subtitle">Take Action</div>
-        <h2>Join Our Mission</h2>
-      </div>
-
-      <div class="involvement-options fade-in">
-    <!--
-        <div class="involvement-card">
-          <i class="fas fa-hands-helping"></i>
-          <h3>Volunteer</h3>
-          <p>Make a direct impact by volunteering your time and skills. From lab assistance to event coordination, every contribution matters.</p>
-          <a href="#contact" class="btn btn-primary">Sign Up</a>
-        </div>
--->
-        <div class="involvement-card">
-          <i class="fas fa-handshake"></i>
-          <h3>Partner With Us</h3>
-          <p>Collaborate with us to accelerate breakthrough discoveries.</p>
-          <a href="#contact" class="btn btn-primary">Contact us!</a>
-        </div>
-
-        <div class="involvement-card">
-          <i class="fas fa-bullhorn"></i>
-          <h3>Spread Awareness</h3>
-          <p>Help us reach more people by sharing our mission on social media and in your community. Every voice amplifies our impact.
-
-          </p>
-          <a href="#contact" class="btn btn-primary">Contact us!</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <!-- ---------- TEAM SECTION ---------- -->
-  <section id="team">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-subtitle">Meet Our Team</div>
-        <h2>The People Behind Our Mission</h2>
-      </div>
-
-      <div class="team-grid fade-in">
-        
-
-        <div class="team-member">
-          <div class="team-member-image">
-            <div class="team-member-placeholder">
-              <i class="fas fa-user"></i>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#programs">Programs</a>
+                <a href="#get-involved">Get Involved</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+                <a href="#donate" class="btn-donate">Donate Now</a>
             </div>
-          </div>
-          <div class="team-member-content">
-            <h3>Dr. Sami Barmada</h3>
-            <div class="team-member-role">Co-Founder & Director</div>
-            <div class="team-member-bio">
-              Dr. Sami Barmada is a neurologist and professor at the University of Michigan. An MD/PhD by training, he leads research aimed at understanding the molecular and cellular mechanisms of neurodegenerative diseases such as ALS and frontotemporal dementia, with the goal of identifying new therapeutic strategies.
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
             </div>
-            <div class="team-member-social">
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fas fa-envelope"></i></a>
-            </div>
-          </div>
         </div>
+    </nav>
 
-        <div class="team-member">
-          <div class="team-member-image">
-            <div class="team-member-placeholder">
-              <i class="fas fa-user"></i>
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <div class="hero-subtitle">Fighting Neurodegenerative Disease Together</div>
+                    <h1>Serving Us Individually</h1>
+                    <p class="hero-description">
+                        Sui Health is pioneering personalized therapeutics for neurodegenerative diseases like ALS. Using patient derived cellular models, we develop treatments tailored to each individual.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#donate" class="btn btn-primary">
+                            <i class="fas fa-heart"></i> Donate Now
+                        </a>
+                        <a href="#about" class="btn btn-secondary">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="team-member-content">
-            <h3>Dr. Tristan McKinney</h3>
-            <div class="team-member-role">Co-Founder & Director</div>
-            <div class="team-member-bio">
-              Tristan McKinney is a machine learning scientist with a PhD in Theoretical Physics from Caltech. He is passionate about using computational tools to enhance drug screening platforms and accelerate discoveries that advance human health.
-            </div>
-            <div class="team-member-social">
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fas fa-envelope"></i></a>
-            </div>
-          </div>
         </div>
+    </section>
 
-      
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Our Story</div>
+                <h2>Why We Exist</h2>
+            </div>
+            
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>
+                        After having seen firsthand the devastating impact of ALS, both in the clinic and within our own families, we set out to build something that could meaningfully help patients today. We believe that the future of ALS care lies in personalized medicine rooted in each patient's own biology.
+                    </p>
+                    <p>
+                        Using cells directly from the patient, Sui Health creates personalized neuronal models that capture the specific mechanisms driving an individual's disease. These models allow us to test therapies in a way that is deeply personalized and clinically relevant.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="https://suihealth-website.s3.us-east-2.amazonaws.com/photos/ratsplosion.png" alt="Sui Health Laboratory Research">
+                </div>
+            </div>
 
-        <div class="team-member">
-          <div class="team-member-image">
-            <div class="team-member-placeholder">
-              <i class="fas fa-user"></i>
+            <!-- Values Section -->
+            <div class="values-grid fade-in">
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Patient-Centered Care</h4>
+                    <p>Every decision begins with the patient's needs. We believe individuals living with neurodegenerative disease deserve tailored, actionable solutions that address their unique circumstances.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Collaboration</h4>
+                    <p>We believe breakthrough discoveries happen when we work together. We are excited to collaborate with academia, industry, and patient communities to expand access to treatments.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Ethical Integrity</h4>
+                    <p>We ensure patient privacy, informed consent, and responsible use of biological materials. We are committed to conducting responsible science with the highest standards.</p>
+                </div>
             </div>
-          </div>
-          <div class="team-member-content">
-            <h3>Dr. Arpana Arjun McKinney</h3>
-            <div class="team-member-role">Co-Founder & Director</div>
-            <div class="team-member-bio">
-              Dr. Arpana Arjun McKinney earned her PhD in Developmental and Stem Cell Biology from UCSF. Having witnessed the impact of ALS in her family, she is dedicated to advancing personalized treatments for neurodegenerative diseases.
-            </div>
-            <div class="team-member-social">
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fas fa-envelope"></i></a>
-            </div>
-          </div>
         </div>
+    </section>
 
-      </div>
-    </div>
-  </section>
+    <!-- Programs Section -->
+    <section id="programs">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">What We Do</div>
+                <h2>Our Impact</h2>
+            </div>
 
-  <!-- ---------- DONATE SECTION ---------- -->
+            <div class="about-values fade-in">
+                <img src="https://suihealth-website.s3.us-east-2.amazonaws.com/photos/BarmadaGallagherLab22_016.JPG" alt="Sui Health Laboratory">
+            </div>
 
-  <section id="donate">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-subtitle">Support Our Cause</div>
-        <h2>We thank you for your donation</h2>
-      </div>
-        
-        <div class="sui-donation-section fade-in">
-            <div class="donation-content-wrapper">
-                <div class="impact-message">
-                    <h3>Your Impact</h3>
-                    <p>Your support enables development of patient-specific treatments and compassionate use clinical trials.</p>
-                    
-                    <div class="impact-points">
-                        <div class="impact-point">
-                            <i class="fas fa-microscope"></i>
-                            <span>Patient-specific disease modeling</span>
+            <div class="values-grid fade-in">
+                <div class="value-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>Disease Modeling</h4>
+                    <p>We generate neurons directly from each patient's cells to build personalized disease models. These reveal specific mechanisms affecting individual neurons and allow rapid testing of potential treatments.</p>
+                </div>
+
+                <div class="value-card">
+                    <i class="fas fa-pills"></i>
+                    <h4>Drug Discovery Platform</h4>
+                    <p>Using automated high-throughput assays and longitudinal imaging, we test hundreds of FDA-approved compounds to identify treatments tailored to individual disease profiles and genetic backgrounds.</p>
+                </div>
+
+                <div class="value-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h4>Patient Support</h4>
+                    <p>Once we identify personalized therapies, we help bring these treatments back to patients through compassionate use protocols, clinical trials, and direct therapeutic access programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Take Action</div>
+                <h2>Join Our Mission</h2>
+            </div>
+
+            <div class="involvement-options fade-in">
+                <div class="involvement-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Partner With Us</h3>
+                    <p>Collaborate with us to accelerate breakthrough discoveries in personalized medicine for neurodegenerative diseases.</p>
+                    <a href="#contact" class="btn btn-primary">Contact Us</a>
+                </div>
+
+                <div class="involvement-card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Spread Awareness</h3>
+                    <p>Help us reach more people by sharing our mission on social media and in your community. Every voice amplifies our impact.</p>
+                    <a href="#contact" class="btn btn-primary">Get Involved</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Meet Our Team</div>
+                <h2>The People Behind Our Mission</h2>
+            </div>
+
+            <div class="team-grid fade-in">
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <div class="team-member-placeholder">
+                            <i class="fas fa-user"></i>
                         </div>
-                        <div class="impact-point">
-                            <i class="fas fa-pills"></i>
-                            <span>High-throughput therapeutic screening</span>
-                        </div>
-                        <div class="impact-point">
-                            <i class="fas fa-heartbeat"></i>
-                            <span>Compassionate use clinic  al access</span>
+                    </div>
+                    <div class="team-member-content">
+                        <h3>Dr. Sami Barmada</h3>
+                        <div class="team-member-role">Co-Founder & Director</div>
+                        <div class="team-member-bio">
+                            Dr. Sami Barmada is a neurologist and professor at the University of Michigan. An MD/PhD by training, he leads research aimed at understanding the molecular and cellular mechanisms of neurodegenerative diseases such as ALS and frontotemporal dementia, with the goal of identifying new therapeutic strategies.
                         </div>
                     </div>
                 </div>
-                
-                <div class="secure-donation">
-                    <div class="security-badge">
-                        <i class="fas fa-shield-alt"></i>
-                        Secure Donation via PayPal
+
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <div class="team-member-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
                     </div>
-                    
-                    <div class="paypal-container">
-                        <form action="https://www.paypal.com/donate" method="post" target="_top">
-                            <input type="hidden" name="hosted_button_id" value="4DTCPVNDSD5BN" />
-                            
-                            <button type="submit" class="custom-donate-btn">
-                                <i class="fas fa-credit-card"></i>
-                                <span class="btn-content">
-                                    <span class="btn-text">Donate Now via PayPal</span>
-                                    <small>Secure • Tax-Deductible • All Major Cards Accepted</small>
-                                </span>
-                            </button>
-                            
-                            <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-                        </form>
+                    <div class="team-member-content">
+                        <h3>Dr. Tristan McKinney</h3>
+                        <div class="team-member-role">Co-Founder & Director</div>
+                        <div class="team-member-bio">
+                            Tristan McKinney is a machine learning scientist with a PhD in Theoretical Physics from Caltech. He is passionate about using computational tools to enhance drug screening platforms and accelerate discoveries that advance human health.
+                        </div>
                     </div>
                 </div>
-                
-                <div class="nonprofit-credentials">
-                    <div class="credentials-grid">
-                        <div class="credential-item">
-                            <div class="credential-icon">
-                                <i class="fas fa-university"></i>
+
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <div class="team-member-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="team-member-content">
+                        <h3>Dr. Arpana Arjun McKinney</h3>
+                        <div class="team-member-role">Co-Founder & Director</div>
+                        <div class="team-member-bio">
+                            Dr. Arpana Arjun McKinney earned her PhD in Developmental and Stem Cell Biology from UCSF. Having witnessed the impact of ALS in her family, she is dedicated to advancing personalized treatments for neurodegenerative diseases.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section id="donate">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Support Our Cause</div>
+                <h2>We thank you for your donation</h2>
+            </div>
+            
+            <div class="sui-donation-section fade-in">
+                <div class="donation-content-wrapper">
+                    <div class="impact-message">
+                        <h3>Your Impact</h3>
+                        <p>Your support enables development of patient-specific treatments and compassionate use clinical trials.</p>
+                        
+                        <div class="impact-points">
+                            <div class="impact-point">
+                                <i class="fas fa-microscope"></i>
+                                <span>Patient-specific disease modeling</span>
                             </div>
-                            <div class="credential-text">
-                                <strong>501(c)(3) Nonprofit</strong>
-                                <span>EIN: 39-4228782</span>
+                            <div class="impact-point">
+                                <i class="fas fa-pills"></i>
+                                <span>High-throughput therapeutic screening</span>
+                            </div>
+                            <div class="impact-point">
+                                <i class="fas fa-heartbeat"></i>
+                                <span>Compassionate use clinical access</span>
                             </div>
                         </div>
-                        <div class="credential-item">
-                            <div class="credential-icon">
-                                <i class="fas fa-receipt"></i>
+                    </div>
+                    
+                    <div class="secure-donation">
+                        <div class="security-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            Secure Donation via PayPal
+                        </div>
+                        
+                        <div class="paypal-container">
+                            <form action="https://www.paypal.com/donate" method="post" target="_top">
+                                <input type="hidden" name="hosted_button_id" value="4DTCPVNDSD5BN" />
+                                
+                                <button type="submit" class="custom-donate-btn">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span class="btn-content">
+                                        <span class="btn-text">Donate Now via PayPal</span>
+                                        <small>Secure • Tax-Deductible • All Major Cards Accepted</small>
+                                    </span>
+                                </button>
+                                
+                                <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="nonprofit-credentials">
+                        <div class="credentials-grid">
+                            <div class="credential-item">
+                                <div class="credential-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="credential-text">
+                                    <strong>501(c)(3) Nonprofit</strong>
+                                    <span>EIN: 39-4228782</span>
+                                </div>
                             </div>
-                            <div class="credential-text">
-                                <strong>Tax-Deductible</strong>
-                                <span>Receipt provided automatically</span>
+                            <div class="credential-item">
+                                <div class="credential-icon">
+                                    <i class="fas fa-receipt"></i>
+                                </div>
+                                <div class="credential-text">
+                                    <strong>Tax-Deductible</strong>
+                                    <span>Receipt provided automatically</span>
+                                </div>
                             </div>
                         </div>
-                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Get In Touch</div>
+                <h2>We'd Love to Hear From You</h2>
+            </div>
+
+            <div class="contact-container fade-in">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-item-content">
+                            <h4>Email</h4>
+                            <p><a href="mailto:contact@suihealth.com">contact@suihealth.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-item-content">
+                            <h4>Phone</h4>
+                            <p>(858) 395-0385</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-item-content">
+                            <h4>Address</h4>
+                            <p>4934 Brookburn Drive<br>San Diego, CA 92130</p>
                         </div>
                     </div>
                 </div>
-                
-              
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Add this CSS to your existing stylesheet -->
-<style>
-/* Enhanced Donation Section - Integrates with existing SUI Health design */
-.sui-donation-section {
-    max-width: 900px;
-    margin: 0 auto;
-    background: var(--white);
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.donation-content-wrapper {
-    padding: 50px 40px;
-}
-
-.impact-message {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.impact-message h3 {
-    color: var(--dark-black);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 600;
-    line-height: 1.3;
-    margin-bottom: 1.5rem;
-}
-
-.impact-message p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--medium-black);
-    margin-bottom: 2rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.impact-points {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.impact-point {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 20px;
-    background: var(--light-gray);
-    border-radius: 15px;
-    border-left: 4px solid var(--primary-blue);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.impact-point:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(37, 99, 235, 0.1);
-}
-
-.impact-point i {
-    font-size: 1.5rem;
-    color: var(--primary-blue);
-    min-width: 24px;
-}
-
-.impact-point span {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--dark-black);
-}
-
-.secure-donation {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.security-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--success);
-    padding: 12px 28px;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 35px;
-    border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
-.security-badge i {
-    font-size: 1.1rem;
-}
-
-.paypal-container {
-    margin: 30px 0;
-}
-
-.custom-donate-btn {
-    background: linear-gradient(135deg, var(--light-blue) 0%, var(--accent-blue) 100%);
-    color: var(--white);
-    border: none;
-    border-radius: 50px;
-    padding: 24px 50px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
-    min-width: 320px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    font-family: 'Inter', sans-serif;
-    position: relative;
-    overflow: hidden;
-}
-
-.custom-donate-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.custom-donate-btn:hover::before {
-    left: 100%;
-}
-
-.custom-donate-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.4);
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-}
-
-.custom-donate-btn i {
-    font-size: 1.3rem;
-}
-
-.btn-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.btn-text {
-    font-size: 1.2rem;
-    line-height: 1.2;
-}
-
-.btn-content small {
-    font-size: 0.8rem;
-    font-weight: 400;
-    opacity: 0.9;
-    margin-top: 4px;
-}
-
-.nonprofit-credentials {
-    background: var(--light-gray);
-    border-radius: 20px;
-    padding: 40px;
-    margin: 50px 0;
-}
-
-.credentials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.credential-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: var(--white);
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.credential-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.credential-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--light-blue) 0%, var(--accent-blue) 100%);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.credential-icon i {
-    font-size: 1.5rem;
-    color: var(--white);
-}
-
-.credential-text {
-    flex: 1;
-}
-
-.credential-text strong {
-    display: block;
-    color: var(--dark-black);
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.credential-text span {
-    color: var(--gray);
-    font-size: 0.95rem;
-}
-
-.transparency-note {
-    background: rgba(59, 130, 246, 0.05);
-    border-radius: 15px;
-    border: 1px solid rgba(59, 130, 246, 0.1);
-    padding: 30px;
-    margin-top: 50px;
-}
-
-.transparency-note h4 {
-    color: var(--dark-black);
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.transparency-note h4::before {
-    content: '\f05a';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    color: var(--primary-blue);
-    font-size: 1rem;
-}
-
-.transparency-note p {
-    margin: 0;
-    color: var(--medium-black);
-    line-height: 1.7;
-    font-size: 1rem;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .donation-content-wrapper {
-        padding: 40px 30px;
-    }
-    
-    .impact-points {
-        grid-template-columns: 1fr;
-    }
-    
-    .credentials-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .donation-content-wrapper {
-        padding: 30px 20px;
-    }
-    
-    .custom-donate-btn {
-        min-width: 280px;
-        padding: 20px 40px;
-        font-size: 1.1rem;
-    }
-    
-    .btn-text {
-        font-size: 1.1rem;
-    }
-    
-    .credential-item {
-        padding: 20px;
-        gap: 15px;
-    }
-    
-    .credential-icon {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .credential-icon i {
-        font-size: 1.25rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .custom-donate-btn {
-        min-width: 250px;
-        padding: 18px 30px;
-        gap: 12px;
-    }
-    
-    .impact-point {
-        padding: 15px;
-        gap: 12px;
-    }
-    
-    .impact-point i {
-        font-size: 1.25rem;
-    }
-}
-
-/* Accessibility */
-.custom-donate-btn:focus {
-    outline: 3px solid var(--warning);
-    outline-offset: 3px;
-}
-
-.credential-item:focus-within {
-    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
-}
-
-.impact-point:focus-within {
-    outline: 2px solid var(--primary-blue);
-    outline-offset: 2px;
-}
-
-/* Animation on scroll */
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.sui-donation-section.fade-in.visible {
-    animation: slideInUp 0.8s ease forwards;
-}
-</style>
-</style>
-
-
-      <!--
-      <div class="donate-container fade-in">
-        <div class="donation-options">
-          <button class="donation-tab active" onclick="switchDonationType('one-time')">One-Time Gift</button>
-          <button class="donation-tab" onclick="switchDonationType('monthly')">Monthly Giving</button>
-        </div>
-
-        <div class="donation-content">
-          <div class="amount-grid">
-            <button class="amount-btn" onclick="selectAmount(50)">$50</button>
-            <button class="amount-btn" onclick="selectAmount(100)">$100</button>
-            <button class="amount-btn" onclick="selectAmount(250)">$250</button>
-            <button class="amount-btn" onclick="selectAmount(500)">$500</button>
-            <button class="amount-btn" onclick="selectAmount(1000)">$1,000</button>
-            <button class="amount-btn" onclick="selectAmount(2500)">$2,500</button>
-            <input type="number" class="custom-amount" placeholder="Enter custom amount" min="1">
-          </div>
-
-          <div class="payment-methods">
-            <h4>Payment Method</h4>
-            <div class="payment-icons">
-              <div class="payment-icon selected">
-                <i class="fas fa-credit-card"></i> Credit Card
-              </div>
-              <div class="payment-icon">
-                <i class="fab fa-paypal"></i> PayPal
-              </div>
-              <div class="payment-icon">
-                <i class="fas fa-university"></i> Bank Transfer
-              </div>
-              <div class="payment-icon">
-                <i class="fab fa-bitcoin"></i> Crypto
-              </div>
-            </div>
-          </div>
-
-          <button class="btn btn-primary donate-btn">
-            <i class="fas fa-heart"></i> Complete Donation
-          </button>
-
-          <div class="donation-info">
-            <p><i class="fas fa-lock"></i> Your donation is secure and encrypted</p>
-            <p><i class="fas fa-file-alt"></i> Tax-deductible (EIN: 12-3456789)</p>
-            <p><i class="fas fa-chart-line"></i> Donations fund research programs</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  </section>
-
-
-  <!-- ---------- CONTACT SECTION ---------- -->
-  <section id="contact">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-subtitle">Get In Touch</div>
-            <h2>We'd Love to Hear From You</h2>
-        </div>
-
-        <div class="contact-container fade-in">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div class="contact-item-content">
-                        <h4>Email</h4>
-                        <p><a href="mailto:contact@suihealth.com" style="color: rgba(255, 255, 255, 0.9); text-decoration: none;">contact@suihealth.com</a></p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div class="contact-item-content">
-                        <h4>Phone</h4>
-                        <p>(858) 395-0385</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="contact-item-content">
-                        <h4>Address</h4>
-                        <p>4934 Brookburn Drive<br>San Diego, CA 92130</p>
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-
-            <div class="contact-form">
-                <h3>Send Us a Message</h3>
-                
-                <!-- WORKING FORMSPREE FORM -->
-                <form action="https://formspree.io/f/mjggljwk" method="POST" id="contact-form">
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
                     
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    
-                    <!-- Formspree Configuration -->
-                    <input type="hidden" name="_subject" value="New Contact Form Submission from SUI Health Website">
-                    <input type="hidden" name="_replyto" value="">
-                    <input type="hidden" name="_next" value="https://suihealth.com/thank-you.html">
-                    
-                    <button type="submit" class="btn btn-primary form-submit">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-                
-                <!-- Success Message (will show after form submission) -->
-                <div id="success-message" style="display: none; background: #d4edda; color: #155724; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center;">
-                    <h4>✅ Message Sent Successfully!</h4>
-                    <p>Thank you for contacting SUI Health. We will get back to you soon.</p>
+                    <form action="https://formspree.io/f/mjggljwk" method="POST" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <input type="hidden" name="_subject" value="New Contact Form Submission from Sui Health Website">
+                        
+                        <button type="submit" class="btn btn-primary form-submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Enhanced JavaScript for better UX -->
-<script>
-// Remove the old handleSubmit function and replace with this:
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contact-form');
-    const submitBtn = form.querySelector('.form-submit');
-    const originalBtnText = submitBtn.innerHTML;
-    
-    form.addEventListener('submit', function(e) {
-        // Show loading state
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-        
-        // The form will submit to Formspree automatically
-        // After submission, Formspree will redirect to a thank you page
-    });
-    
-    // Handle the case where user returns to the page
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true') {
-        document.getElementById('success-message').style.display = 'block';
-        form.style.display = 'none';
-        
-        // Reset after 10 seconds
-        setTimeout(() => {
-            document.getElementById('success-message').style.display = 'none';
-            form.style.display = 'block';
-            form.reset();
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-        }, 10000);
-    }
-});
-</script>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Sui Health</h3>
+                    <p>
+                        Serving Us Individually - Advancing personalized medicine for neurodegenerative diseases.
+                    </p>
+                </div>
 
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Our Programs</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#donate">Donate</a></li>
+                    </ul>
+                </div>
+            </div>
 
-  <!-- ---------- FOOTER ---------- -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-about">
-          <h3>Sui Health</h3>
-          <p>
-            Serving Us Individually - Advancing personalized medicine for neurodegenerative diseases.
-          </p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sui Health - Serving Us Individually. All rights reserved. | EIN: 39-4228782 | A 501(c)(3) Nonprofit Organization</p>
+            </div>
         </div>
+    </footer>
 
-        <div class="footer-column">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#programs">Our Programs</a></li>
-            <li><a href="#team">Our Team</a></li>
-            <li><a href="#donate">Donate</a></li>
-          </ul>
-        </div>
-
-        
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 Sui Health. All rights reserved. | Tax ID: 12-3456789 | A 501(c)(3) Nonprofit Organization</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Loading Screen
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('loader').classList.add('hidden');
-      }, 500);
-    });
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    // Observe all fade-in elements
-    document.querySelectorAll('.fade-in').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Donation amount selection
-    function selectAmount(amount) {
-      document.querySelectorAll('.amount-btn').forEach(btn => {
-        btn.classList.remove('selected');
-      });
-      event.target.classList.add('selected');
-      document.querySelector('.custom-amount').value = '';
-    }
-
-    // Switch donation type
-    function switchDonationType(type) {
-      document.querySelectorAll('.donation-tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      event.target.classList.add('active');
-      
-      // Update button text based on donation type
-      const donateBtn = document.querySelector('.donate-btn');
-      if (type === 'monthly') {
-        donateBtn.innerHTML = '<i class="fas fa-heart"></i> Start Monthly Giving';
-      } else {
-        donateBtn.innerHTML = '<i class="fas fa-heart"></i> Complete Donation';
-      }
-    }
-
-    // Payment method selection
-    document.querySelectorAll('.payment-icon').forEach(icon => {
-      icon.addEventListener('click', function() {
-        document.querySelectorAll('.payment-icon').forEach(i => {
-          i.classList.remove('selected');
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500);
         });
-        this.classList.add('selected');
-      });
-    });
 
-    // Handle contact form submission
-    function handleSubmit(event) {
-      event.preventDefault();
-      alert('Thank you for your message! We will get back to you soon.');
-      event.target.reset();
-    }
-
-    // Mobile menu toggle
-    document.querySelector('.mobile-menu').addEventListener('click', function() {
-      const navLinks = document.querySelector('.nav-links');
-      if (navLinks.style.display === 'flex') {
-        navLinks.style.display = 'none';
-      } else {
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.right = '0';
-        navLinks.style.background = 'var(--dark-black)';
-        navLinks.style.padding = '20px';
-      }
-    });
-
-    // Counter animation for stats
-    function animateCounter(element, start, end, duration) {
-      let startTimestamp = null;
-      const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const current = Math.floor(progress * (end - start) + start);
-        element.textContent = current.toLocaleString();
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        }
-      };
-      window.requestAnimationFrame(step);
-    }
-
-    // Trigger counter animation when stats come into view
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.animated) {
-          const statNumbers = entry.target.querySelectorAll('.stat-number');
-          statNumbers.forEach(stat => {
-            const value = stat.textContent;
-            if (value.includes('+')) {
-              const num = parseInt(value.replace('+', ''));
-              animateCounter(stat, 0, num, 2000);
-              stat.animated = true;
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
-          });
-          entry.target.animated = true;
-        }
-      });
-    }, { threshold: 0.5 });
+        });
 
-    const heroStats = document.querySelector('.hero-stats');
-    if (heroStats) {
-      statsObserver.observe(heroStats);
-    }
-  </script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const mobileMenu = document.querySelector('.mobile-menu i');
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+                mobileMenu.classList.replace('fa-times', 'fa-bars');
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'var(--dark-black)';
+                navLinks.style.padding = '20px';
+                navLinks.style.borderRadius = '0 0 15px 15px';
+                mobileMenu.classList.replace('fa-bars', 'fa-times');
+            }
+        }
+
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                const mobileMenu = document.querySelector('.mobile-menu i');
+                navLinks.style.display = 'none';
+                mobileMenu.classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('.form-submit');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // The form will submit to Formspree
+            // Reset button after a delay (form will redirect or show success)
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
+        });
+
+        // Handle viewport height changes (mobile browser bars)
+        function setViewportHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight);
+        window.addEventListener('orientationchange', setViewportHeight);
+    </script>
 </body>
 </html>
